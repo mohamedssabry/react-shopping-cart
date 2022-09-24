@@ -4,5 +4,5 @@ const sass = gulpsass(require("sass"));
 
 
 gulp.task("sass", async function () {
-  gulp.src("src/*.scss").pipe(sass()).pipe(gulp.dest("src/css"));
+  gulp.src("src/components/**/*.scss").pipe(sass()).pipe(gulp.dest("src/css"));
 });
