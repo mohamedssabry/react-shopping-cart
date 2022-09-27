@@ -12,7 +12,7 @@ function App() {
       <Header />
       <main>
         <div className="wrapper">
-          <Products products={ products} />
+          <Products products={products} />
           <div className="filter-wrapper">Filter</div>
         </div>
       </main>
