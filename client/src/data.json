@@ -4,7 +4,7 @@
     "title": "Product 1",
     "imgUrl": "/images/product1.jpeg",
     "desc": " This is Product 1",
-    "price": 30,
+    "price": 100,
     "sizes": ["M", "L"]
   },
   {
@@ -12,7 +12,7 @@
     "title": "Product 2",
     "imgUrl": "/images/product2.jfif",
     "desc": " This is Product 2",
-    "price": 40,
+    "price": 150,
     "sizes": ["L", "M"]
   },
   {
