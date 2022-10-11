@@ -43,7 +43,7 @@ function App() {
     setProducts(newProducts);
   };
 
-  const addToCart = (product) => {
+  const addToCart = (product) => { 
     const cartItemsClone = [...cartItems];
     var isProductExist = false;
 
