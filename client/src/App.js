@@ -4,7 +4,9 @@ import Filter from "./components/Filter/Filter";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Products from "./components/Products/Products";
+import { Provider } from "react-redux";
 import data from "./data.json";
+import store from "./store/store";
 
 function App() {
   const [products, setProducts] = useState(data);
@@ -69,23 +71,26 @@ function App() {
   };
 
   return (
-    <div className="layout">
-      <Header />
-      <main>
-        <div className="wrapper">
-          <Products products={products} addToCart={addToCart} />
-          <Filter
-            ProductNumber={products.length}
-            size={size}
-            sort={sort}
-            handleFilterBySort={handleFilterBySort}
-            handleFilterBySize={handleFilterBySize}
-          />
-        </div>
-        <Cart CartItems={cartItems} removeFromCart={removeFromCart} />
-      </main>
-      <Footer />
-    </div>
+    <Provider store={store}>
+     
+      <div className="layout">
+        <Header />
+        <main>
+          <div className="wrapper">
+            <Products products={products} addToCart={addToCart} />
+            <Filter
+              ProductNumber={products.length}
+              size={size}
+              sort={sort}
+              handleFilterBySort={handleFilterBySort}
+              handleFilterBySize={handleFilterBySize}
+            />
+          </div>
+          <Cart CartItems={cartItems} removeFromCart={removeFromCart} />
+        </main>
+        <Footer />
+      </div>
+    </Provider>
   );
 }
 
