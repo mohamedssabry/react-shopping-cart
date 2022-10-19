@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "../../css/Cart/Cart.css";
 import Checkoutform from "../Checkoutform/Checkoutform";
-import Bounce from "react-reveal/Bounce"
+import Bounce from "react-reveal/Bounce";
+import { connect } from "react-redux";
+import { removeCart } from "../../store/actions/cart";
 
 function Cart(props) {
   const [showForm, setShowForm] = useState(false);
@@ -12,8 +14,8 @@ function Cart(props) {
 
     const order = {
       name: value.name,
-      email: value.email
-    }
+      email: value.email,
+    };
     console.log(order);
   };
 
@@ -27,15 +29,15 @@ function Cart(props) {
   return (
     <div className="cart-wrapper">
       <div className="cart-title">
-        {props.CartItems.length === 0 ? (
+        {props.cartItems.length === 0 ? (
           "Empty Card"
         ) : (
-          <p>There is {props.CartItems.length} Product in Cart</p>
+          <p>There is {props.cartItems.length} Product in Cart</p>
         )}
       </div>
       <Bounce bottom cascade>
         <div className="cart-items">
-          {props.CartItems.map((item) => (
+          {props.cartItems.map((item) => (
             <div className="cart-item" key={item.id}>
               <img src={item.imgUrl} alt="" />
               <div className="cart-info">
@@ -44,19 +46,17 @@ function Cart(props) {
                   <p>Qty: {item.qty} </p>
                   <p>Price: ${item.price}</p>
                 </div>
-                <button onClick={() => props.removeFromCart(item)}>
-                  Remove
-                </button>
+                <button onClick={() => props.removeCart(item)}>Remove</button>
               </div>
             </div>
           ))}
         </div>
       </Bounce>
-      {props.CartItems.length !== 0 && (
+      {props.cartItems.length !== 0 && (
         <div className="cart-footer">
           <div className="total">
             Total: $
-            {props.CartItems.reduce((acc, p) => {
+            {props.cartItems.reduce((acc, p) => {
               return p.qty !== 0 ? acc + p.price * p.qty : null;
             }, 0)}
           </div>
@@ -73,4 +73,11 @@ function Cart(props) {
   );
 }
 
-export default Cart;
+export default connect(
+  (state) => {
+    return {
+      cartItems: state.cart.cartItems,
+    };
+  },
+  { removeCart }
+)(Cart);
