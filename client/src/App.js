@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Cart from "./components/Cart/Cart";
 import Filter from "./components/Filter/Filter";
 import Footer from "./components/Footer/Footer";
@@ -45,7 +45,7 @@ function App() {
     setProducts(newProducts);
   };
 
-  const addToCart = (product) => { 
+  const addToCart = (product) => {
     const cartItemsClone = [...cartItems];
     var isProductExist = false;
 
@@ -61,10 +61,6 @@ function App() {
     setCartItems(cartItemsClone);
   };
 
-  useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]);
-
   const removeFromCart = (product) => {
     const cartItemsClone = [...cartItems];
     setCartItems(cartItemsClone.filter((p) => p.id !== product.id));
@@ -72,7 +68,6 @@ function App() {
 
   return (
     <Provider store={store}>
-     
       <div className="layout">
         <Header />
         <main>
@@ -86,7 +81,7 @@ function App() {
               handleFilterBySize={handleFilterBySize}
             />
           </div>
-          <Cart CartItems={cartItems} removeFromCart={removeFromCart} />
+          <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
         </main>
         <Footer />
       </div>
