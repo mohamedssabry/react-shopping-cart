@@ -1,7 +1,7 @@
 [
   {
     "id": "id1",
-    "title": "Product 1",
+    "title": "Shoes",
     "imgUrl": "/images/product1.jpeg",
     "desc": " This is Product 1",
     "price": 100,
@@ -9,7 +9,7 @@
   },
   {
     "id": "id2",
-    "title": "Product 2",
+    "title": "Earphone",
     "imgUrl": "/images/product2.jfif",
     "desc": " This is Product 2",
     "price": 150,
@@ -17,7 +17,7 @@
   },
   {
     "id": "id3",
-    "title": "Product 3",
+    "title": "Camera",
     "imgUrl": "/images/product3.jpg",
     "desc": " This is Product 3",
     "price": 600,
@@ -25,7 +25,7 @@
   },
   {
     "id": "id4",
-    "title": "Product 4",
+    "title": "Ring",
     "imgUrl": "images/product4.jpg",
     "desc": " This is Product 4",
     "price": 50,
