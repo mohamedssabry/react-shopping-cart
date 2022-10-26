@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { removeCart } from "../../store/actions/cart";
 import { createOrder, clearOrder } from "../../store/actions/orders";
 import OrderModal from "./OrderModal";
+import { words } from "../../words";
 
 function Cart(props) {
   const [showForm, setShowForm] = useState(false);
@@ -55,11 +56,11 @@ function Cart(props) {
               <img src={item.imgUrl} alt="" />
               <div className="cart-info">
                 <div>
-                  <p>Title: {item.title}</p>
-                  <p>Qty: {item.qty} </p>
-                  <p>Price: ${item.price}</p>
+                  <p>{words.title} {item.title}</p>
+                  <p>{words.qty} {item.qty} </p>
+                  <p>{words.price}{item.price}</p>
                 </div>
-                <button onClick={() => props.removeCart(item)}>Remove</button>
+                <button onClick={() => props.removeCart(item)}>{ words.remove}</button>
               </div>
             </div>
           ))}
@@ -68,12 +69,12 @@ function Cart(props) {
       {props.cartItems.length !== 0 && (
         <div className="cart-footer">
           <div className="total">
-            Total: $
+            {words.total}
             {props.cartItems.reduce((acc, p) => {
               return p.qty !== 0 ? acc + p.price * p.qty : null;
             }, 0)}
           </div>
-          <button onClick={() => setShowForm(true)}>Select Product</button>
+          <button onClick={() => setShowForm(true)}>{ words.selectbtn}</button>
         </div>
       )}
       <Checkoutform
