@@ -24,15 +24,16 @@ main {
   grid-area: main;
 }
 
-.wrapper{
+.wrapper {
   display: flex;
   justify-content: space-between;
   margin: 25px 25px;
 }
 
-.wrapper .products-wrapper{
+.wrapper .products-wrapper {
   width: 68%;
 }
-.wrapper .filter-wrapper{
+
+.wrapper .filter-wrapper {
   width: 30%;
 }
