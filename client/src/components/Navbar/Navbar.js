@@ -6,18 +6,11 @@ function Navbar() {
   return (
     <>
       <div className="nav">
-        <NavLink
-          to="/home"
-          className={({ isActive }) => (isActive ? "active" : "inactive")}
-        >
+        <NavLink to="/" end>
+          <i aria-hidden="true" className="home  icon"></i>
           Home
-        </NavLink>
-        <NavLink
-          to="/orders"
-          className={({ isActive }) => (isActive ? "active" : "inactive")}
-        >
-          Orders
-        </NavLink>
+        </NavLink>{" "}
+        <NavLink to="/orders">Orders</NavLink>
       </div>
     </>
   );
