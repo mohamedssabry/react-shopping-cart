@@ -36,7 +36,7 @@ function Products(props) {
                     <span>${product.price}</span>
                   </div>
                   <button onClick={() => props.addToCart(product)}>
-                   {words.addcart}
+                    {words.addcart}
                   </button>
                 </div>
               );
